@@ -2,6 +2,20 @@
 This application consists of an online convenient store. It is based on a c# dotnet backend API, and a React frontend. 
 This application has:
 
+### AppUsers, who are AspNetUsers and have all their properties:
+- UserName
+- NormalizedUserName
+- etc..
+### Products:
+- Id
+- Name
+- Price
+- QuantityInStock
+- Description
+- Image
+- CategoryId (foreign key)
+- SupplierId (foreign key)
+
 +----------------+        +----------------+        +----------------+
 |    Customers   |        |   Employees    |        |   Categories   |
 +----------------+        +----------------+        +----------------+
