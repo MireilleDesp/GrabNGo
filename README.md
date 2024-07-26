@@ -15,30 +15,30 @@ This application has:
 | created_at     |        +----------------+
 +----------------+
 
-+----------------+        +----------------+        +----------------+
-|    Products    |        |    Suppliers   |        |     Orders     |
-+----------------+        +----------------+        +----------------+
-| product_id     |        | supplier_id    |        | order_id       |
-| product_name   |        | supplier_name  |        | customer_id    |
-| category_id    |        | contact_name   |        | order_date     |
-| price          |        | contact_email  |        | total_amount   |
-| quantity_in_stock |     | phone_number   |        | status         |
-| supplier_id    |        | address        |        | shipping_address |
-| description    |        +----------------+        | billing_address |
-| image_url      |                                 | payment_id      |
-+----------------+                                 +----------------+
++----------------+        +----------------+                          
+|    Products    |        |    Suppliers   |        
++----------------+        +----------------+                          
+| product_id     |        | supplier_id    |                          
+| product_name   |        | supplier_name  |                          
+| category_id    |        | contact_name   |                          
+| price          |        | contact_email  |                          
+| quantity_in_stock |     | phone_number   |                          
+| supplier_id    |        | address        |        
+| description    |        +----------------+                          
+| image_url      |                                                    
++----------------+                                                    
 
-+----------------+        +----------------+        +----------------+
-|     Cart       |        |   OrderDetails |        |    Payments    |
-+----------------+        +----------------+        +----------------+
-| cart_id        |        | order_detail_id|        | payment_id     |
-| customer_id    |        | order_id       |        | customer_id    |
-+----------------+        | product_id     |        | payment_date   |
-                          | quantity       |        | payment_method |
-+----------------+        | unit_price     |        | amount         |
-|   CartItems    |        +----------------+        | transaction_id |
-+----------------+                                 | status         |
-| cart_item_id   |                                 +----------------+
++----------------+                                  +----------------+
+|     Cart       |                                  |     Orders     |
++----------------+                                  +----------------+
+| cart_id        |                                  | payment_id     |
+| customer_id    |                                  | customer_id    |
++----------------+                                  | payment_date   |
+                                                    | payment_method |
++----------------+                                  | amount         |
+|   CartItems    |                                  | shippingAddress |
++----------------+                                  | status         |
+| cart_item_id   |                                  +----------------+
 | cart_id        |
 | product_id     |
 | quantity       |
