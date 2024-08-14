@@ -11,23 +11,23 @@ This application is inspired by the tutorial from Teddy Smith titled **"Finance 
 ## Azure Data Studio (Ubuntu)
 
 To manage your Docker containers for the database:
+```bash
+# Choose the latest stable version from the Compose release page. Replace v2.15.1 with the latest version
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-### Check Running Docker Containers
-```bash
-sudo docker ps -a
+# Make the Docker Compose binary executable
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Check if Docker Compose is installed correctly
+docker-compose --version
+
+# Build and start your containers
+sudo docker-compose up --build
+
+# Start containers in detached mode:
+sudo docker-compose up -d
 ```
-### Create a New Docker Container
-```bash
-sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YOUR_PASSWORD!" -p 1433:1433 --name sql1 --hostname sql1 -d mcr.microsoft.com/mssql/server:2022-latest
-```
-### Check if the Container is Running
-```bash
-sudo docker ps -a
-```
-#### If the container is not running, start it
-```bash
-sudo docker start sql1
-```
+
 Next, open Azure Data Studio, connect to `localhost`, and create a database named `GrabNGoDB`. If you wish to use a different name, remember to update the connection string in `appsettings.json`.
 
 ### Create the Database
