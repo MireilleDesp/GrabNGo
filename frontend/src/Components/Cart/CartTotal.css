@@ -1,0 +1,26 @@
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  /* border: 1px solid #cccccc46; */
+  border-radius: 10px;
+  background-color: #f8f3f334;
+  box-shadow: 0 4px 8px rgba(75, 75, 75, 0.1);
+}
+
+.cart-container h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.total-price {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  padding: 20px;
+}
+
+.total-price span {
+  color: #d9534f; /* This is a bootstrap danger color */
+}

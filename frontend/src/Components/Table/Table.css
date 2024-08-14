@@ -1,0 +1,21 @@
+.table-container {
+  max-height: 600px; /* Adjust this value to your desired max height */
+  overflow-y: auto;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  margin-top: 20px; /* Add margin to separate the table from the AddForm */
+  margin-right: 20px; /* Add margin to separate the table from the AddForm */
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Ensure the header has a background color */
+  z-index: 1; /* Ensure the header is above the table rows */
+}
+
+
