@@ -2,6 +2,10 @@
 
 **GrabNGo** is an online convenience store application. It features a **C# .NET** backend API and a **React** frontend.
 
+## Inspiration
+
+This application is inspired by the tutorial from Teddy Smith titled **"Finance Project"**. You can watch the tutorial on [YouTube](https://youtu.be/XSLm9PHnkxI?si=nzB360_g7GmGd1b0).
+
 ---
 
 ## Azure Data Studio (Ubuntu)
