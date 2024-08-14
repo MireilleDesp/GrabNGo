@@ -41,24 +41,22 @@ The backend of this application is a .NET API. To run the API, use the following
 ```bash
 cd api/
 ```
-2. Install the .NET EF tool globally:
+
+2. Install the dependencies:
 ```bash
+# Install the .NET EF tool globally:
 dotnet tool install -g dotnet-ef
-```
-3. Add the MySQL Data package:
-```bash
+
+# Add the MySQL Data package:
 dotnet add package MySql.Data
-```
-4. Create a migration:
-```bash
+
+# Create a migration:
 dotnet ef migrations add init
-```
-5. Update the database:
-```bash
+
+# Update the database:
 dotnet ef database update
-```
-6. Run the API:
-```bash
+
+# Run the API:
 dotnet watch run
 ```
 
