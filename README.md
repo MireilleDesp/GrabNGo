@@ -68,16 +68,54 @@ To set up the frontend, install the necessary libraries:
 ```bash
 cd frontend/
 ```
+
 2. Install the dependencies:
 ```bash
+# Install the basic project dependencies
 npm install
+
+# Install Axios for making HTTP requests
+npm install axios --save
+
+# Install TypeScript types for Axios
+npm install --save-dev @types/axios
+
+# Install dotenv to manage environment variables
+npm install dotenv --save
+
+# Install React Toastify for notifications
+npm install react-toastify
+
+# Install React Hook Form for form management, and Yup for schema validation
+npm install react-hook-form yup @hookform/resolvers
+
+# Install Tailwind CSS for styling and initialize it
+npm install -D tailwindcss
+npx tailwindcss init
+
+# Install React Router for routing
+npm install --save react-router
+npm install --save react-router-dom
+
+# Install TypeScript types for React Router
+npm install --save @types/react-router
+npm install --save @types/react-router-dom
+
+# Install React Icons for icon components
+npm install react-icons
+
+# Install React Spinners for loading spinners
+npm i react-spinners
+
+# Install ReactJS Popup for modals and popups
+npm i reactjs-popup
+
 ```
+
 3. Start the frontend server:
 ```bash
 npm start
 ```
-
-
 
 ## The Database Tables:
 ### Tables
