@@ -1,7 +1,7 @@
 import axios from "axios";
 import { UserCartItemsGet, UserCartItemsPost } from "../Models/CartItem";
 
-const api = "http://localhost:5072/CartItem/";
+const api = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/CartItem/`;
 
 export const getCartItems = async () => {
   try {

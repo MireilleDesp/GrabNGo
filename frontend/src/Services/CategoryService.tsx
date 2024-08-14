@@ -2,7 +2,7 @@ import axios from "axios";
 import { CategoryGet, CategoryPost } from "../Models/Category";
 import { handleError } from "../Helpers/ErrorHandler";
 
-const api = "http://localhost:5072/Category/";
+const api = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/Category/`;
 
 export const getCategories = async () => {
   try {

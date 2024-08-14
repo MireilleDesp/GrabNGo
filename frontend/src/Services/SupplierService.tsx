@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SupplierGet } from "../Models/Supplier";
 
-const api = "http://localhost:5072/Supplier/";
+const api = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/Supplier/`;
 
 export const getSuppliers = async () => {
   try {

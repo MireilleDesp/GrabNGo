@@ -23,6 +23,11 @@ namespace api.Data
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+        public void InitializeDatabase()
+        {
+            Database.EnsureCreated();
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

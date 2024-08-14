@@ -130,6 +130,15 @@ static async Task SeedAdminUserAsync(UserManager<AppUser> userManager, string ad
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+
+    var dbContext = services.GetRequiredService<ApplicationDBContext>();
+
+    // Ensure the database is created and seed initial data
+    dbContext.InitializeDatabase();
+    // Apply migrations to the database
+    dbContext.Database.Migrate();
+
+    // Seed admin user
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
 
     // Retrieve settings from appsettings.json
@@ -142,11 +151,11 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

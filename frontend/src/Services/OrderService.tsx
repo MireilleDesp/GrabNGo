@@ -1,7 +1,7 @@
 import axios from "axios";
 import { OrderGet } from "../Models/Order";
 
-const api = "http://localhost:5072/Order/";
+const api = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/Order/`;
 
 export const getOrders = async () => {
   try {
