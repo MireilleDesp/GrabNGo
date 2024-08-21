@@ -50,9 +50,9 @@ namespace api.Controllers
             return Ok(orderDto);
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}/{search?}")]
         [Authorize]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> GetOrderDetails([FromRoute] int id, [FromRoute] string search)
         {
             var userName = User.GetUserName();
             var appUser = await _userManager.FindByNameAsync(userName);
@@ -60,8 +60,24 @@ namespace api.Controllers
             if (order.AppUserId != appUser.Id || order == null)
                 return NotFound();
             order.AppUser = appUser;
-            return Ok(order.ToOrderDto());
+
+            var orderCartItems = await _cartItemRepo.OrderDetails(id, search);
+            var cartItemDto = orderCartItems.Select(s => s.ToCartItemDto());
+            return Ok(cartItemDto);
         }
+
+        // [HttpGet("{id:int}")]
+        // [Authorize]
+        // public async Task<IActionResult> GetById([FromRoute] int id)
+        // {
+        //     var userName = User.GetUserName();
+        //     var appUser = await _userManager.FindByNameAsync(userName);
+        //     var order = await _orderRepo.GetByIdAsync(id);
+        //     if (order.AppUserId != appUser.Id || order == null)
+        //         return NotFound();
+        //     order.AppUser = appUser;
+        //     return Ok(order.ToOrderDto());
+        // }
 
         [HttpGet]
         [Route("{appUserName}")]

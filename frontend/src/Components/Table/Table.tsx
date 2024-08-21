@@ -10,9 +10,9 @@ const Table = ({ config, data }: Props) => {
   const renderedRows = data.map((tableObject: any) => {
     return (
       <tr key={tableObject.id}>
-        {config.map((val: any) => {
+        {config.map((val: any, idx: number) => {
           return (
-            <td key={val.label} className="p-3">
+            <td key={`${val.label}-${idx}`} className="p-3">
               {val.render(tableObject)}
             </td>
           );

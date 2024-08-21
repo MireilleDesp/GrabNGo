@@ -6,7 +6,6 @@ const api = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_AP
 export const getCartItems = async () => {
   try {
     const data = await axios.get<UserCartItemsGet[]>(api);
-    console.log(data)
     return data;
   } catch (error: any) {
     console.log("error message: ", error.message);

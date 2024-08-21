@@ -13,6 +13,7 @@ namespace api.Interfaces
         Task<List<CartItem>> GetByProdNameAsync(string cartItemProdName);
         Task<List<CartItem>> GetByUserAsync(string appUserId);
         Task<List<CartItem>> JoinToOrderAsync(int orderId, string appUserId);
+        Task<List<CartItem>> OrderDetails(int orderId, string search);
         Task<List<CartItem>> GetByCartIdAsync(int cartId);
         Task<List<CartItem>> GetByOrderIdAsync(int orderId);
         Task<CartItem> CreateAsync(CartItem CartItemModel);

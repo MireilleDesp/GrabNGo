@@ -6,6 +6,7 @@ using api.Data;
 using api.Interfaces;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace api.Reposatories
 {
@@ -42,8 +43,9 @@ namespace api.Reposatories
                 throw new ArgumentNullException(nameof(cartItemModel), "CartItem or its related properties cannot be null");
             }
 
-            var alreadyExistingItem = _context.CartItems.Include(c => c.Cart).Include(p => p.Product)
+            var alreadyExistingItem = _context.CartItems.Include(c => c.Cart).Include(p => p.Product).Include(o => o.Order)
                 .Where(x => x.CartId == cartItemModel.CartId
+                && x.OrderId == null
                         && x.ProductId == cartItemModel.ProductId
                         && x.Product.Price == cartItemModel.Product.Price
                         && x.Cart.AppUserId == cartItemModel.Cart.AppUserId)
@@ -139,6 +141,16 @@ namespace api.Reposatories
             return await _context.CartItems.Include(c => c.Cart).Include(p => p.Product).Include(o => o.Order)
             .Where(i => i.OrderId == orderId).ToListAsync();
 
+        }
+
+        public async Task<List<CartItem>> OrderDetails(int orderId, string search)
+        {
+            if (search.IsNullOrEmpty())
+                return await _context.CartItems.Include(c => c.Cart).Include(p => p.Product).Include(o => o.Order)
+                .Where(i => i.OrderId == orderId).ToListAsync();
+            else
+                return await _context.CartItems.Include(c => c.Cart).Include(p => p.Product).Include(o => o.Order)
+                .Where(i => i.OrderId == orderId && i.Product.Name.Contains(search)).ToListAsync();
         }
     }
 }

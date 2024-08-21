@@ -19,9 +19,6 @@ const CartItems = ({ cartItemsData }: Props) => {
       <div className="total-price">
         Total to Pay: <span>{formatPrice(totalPrice)}</span>
       </div>
-      <button className="form-button" type="submit">
-        Place order
-      </button>
     </div>
   ) : (
     <Spinner />

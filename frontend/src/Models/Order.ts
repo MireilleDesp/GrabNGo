@@ -7,3 +7,10 @@ export interface OrderGet {
   appUserName: string;
   shippingAddress : string;
 }
+
+export interface OrderPost {
+  paymentMethod: string;
+  amount: number;
+  shippingAddress : string;
+}
+

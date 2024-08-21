@@ -39,7 +39,7 @@ const Order = ({ orderData }: Props) => {
     },
     {
       label: "",
-      render: (order: OrderGet) => <GetOrderDetails />,
+      render: (order: OrderGet) => <GetOrderDetails orderId={order.id} />,
     },
   ];
 

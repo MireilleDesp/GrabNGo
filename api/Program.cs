@@ -13,12 +13,12 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 builder.Services.AddSwaggerGen(option =>
 {
@@ -45,6 +45,18 @@ builder.Services.AddSwaggerGen(option =>
             },
             new string[]{}
         }
+    });
+});
+
+// CORS Configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials()
+              .SetIsOriginAllowed(origin => true); // You can replace this with .WithOrigins("http://localhost:3000") for more control
     });
 });
 
@@ -153,23 +165,20 @@ using (var scope = app.Services.CreateScope())
 // Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())
 // {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 // }
 
 app.UseHttpsRedirection();
+// Use CORS before other middleware
+app.UseCors("AllowAll");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 app.UseMiddleware<TokenValidationMiddleware>();
 
-// to allow CORS.
-app.UseCors(builder => builder
-     .AllowAnyMethod()
-     .AllowAnyHeader()
-     .AllowCredentials()
-     //  .WithOrigins("https://localhost:44351")
-     .SetIsOriginAllowed(origin => true));
 
 app.Run();
 
