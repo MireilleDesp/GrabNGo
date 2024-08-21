@@ -25,6 +25,15 @@ docker-compose --version
 # Build and start your containers for api
 sudo docker-compose up --build
 ```
+Open http://localhost:3000/ in your browser.
+
+Login as Admin using the credentials:
+- User: defaultadmin
+- Password: Admin123!
+
+Create some suppliers, categories and products. 
+
+Then create a regular user, using the Signup button, login, and add items to your cart. 
 
 ---
 

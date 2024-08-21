@@ -52,12 +52,21 @@ const Product = ({
       label: "Price",
       render: (product: ProductGet) => <>{product.price} €</>,
     },
-    {
-      label: " ",
-      render: (product: ProductGet) => (
-        <AddToCartButton onAddToCart={onAddToCart} productId={product.id} />
-      ),
-    },
+
+    // Conditionally add the AddToCartButton if the user is not an admin
+    ...(!isAdmin()
+      ? [
+          {
+            label: " ",
+            render: (product: ProductGet) => (
+              <AddToCartButton
+                onAddToCart={onAddToCart}
+                productId={product.id}
+              />
+            ),
+          },
+        ]
+      : []),
     // Conditionally add these elements if the user is an admin
     ...(isAdmin()
       ? [
