@@ -1,6 +1,14 @@
 # GrabNGo
 
-**GrabNGo** is an online convenience store application. It features a **C# .NET** backend API and a **React** frontend.
+**GrabNGo** is a dummy online convenience store application I created to refresh my skills in C# .NET after completing my PhD in Computer Science (with a focus on Spiking Neural Networks). It features a **C# .NET** backend API and a **React** frontend.
+
+Start by logging in as an Admin using the default seeded Admin account:
+- **Username**: defaultadmin
+- **Password**: Admin123!
+
+As an Admin, you can add categories, suppliers, and products. The application has different functionalities for Admins and regular users. As an Admin, you have full CRUD (Create, Read, Update, Delete) capabilities.
+
+Then, sign up as a regular user to add items to the cart and create orders.
 
 ## Inspiration
 
