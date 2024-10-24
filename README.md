@@ -45,51 +45,6 @@ Then create a regular user, using the Signup button, login, and add items to you
 
 ---
 
-## Local Development
-### Backend for local development (if not using docker):
-The backend of this application is a .NET API. To run the API, use the following commands:
-1. Navigate to the API directory:
-```bash
-cd api/
-```
-
-2. Install the dependencies:
-```bash
-# Install the .NET EF tool globally:
-dotnet tool install -g dotnet-ef
-
-# Add the MySQL Data package:
-dotnet add package MySql.Data
-
-# Create a migration:
-dotnet ef migrations add init
-
-# Update the database:
-dotnet ef database update
-
-# Run the API:
-dotnet watch run
-```
-
-### frontend for local development (if not using docker): 
-To set up the frontend, install the necessary libraries:
-1. Navigate to the frontend directory:
-```bash
-cd frontend/
-```
-
-2. Install the dependencies:
-```bash
-# Install the basic project dependencies
-npm install
-
-```
-
-3. Start the frontend server:
-```bash
-npm start
-```
-
 ## The Database Tables:
 ### Tables
 
