@@ -18,10 +18,9 @@ This application is inspired by the tutorial from Teddy Smith titled **"Finance 
 
 ## Setup (Ubuntu)
 
-To manage your Docker containers:
+Build and start Docker containers:
 
 ```bash
-# Build and start docker containers
 sudo docker-compose up --build
 ```
 Open http://localhost:3000/ in your browser.
