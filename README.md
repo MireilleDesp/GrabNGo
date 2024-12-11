@@ -21,16 +21,7 @@ This application is inspired by the tutorial from Teddy Smith titled **"Finance 
 To manage your Docker containers:
 
 ```bash
-# Choose the latest stable version from the Compose release page. Replace v2.15.1 with the latest version
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-# Make the Docker Compose binary executable
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Check if Docker Compose is installed correctly
-docker-compose --version
-
-# Build and start your containers for api
+# Build and start docker containers
 sudo docker-compose up --build
 ```
 Open http://localhost:3000/ in your browser.
